@@ -1,0 +1,8 @@
+APIs CheckList
+
+1. Product Controller
+--> Get product
+--> Add a product
+--> Get one product
+--> Rate product
+--> Filter product
