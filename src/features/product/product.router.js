@@ -1,6 +1,6 @@
 // 1. Import Express
 import express from 'express';
-import ProductController from './product.controller.js';
+import ProductController from './product.controller.js'; 
 
 // 2. Initialize Express router.
 const productRouter = express.Router();
