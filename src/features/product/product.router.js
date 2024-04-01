@@ -9,7 +9,7 @@ const productRouter = express.Router();
 const productController = new ProductController();
 
 // All the paths to controller methods
-productRouter.get('/getProduct', productController.getAllProduct);  
+productRouter.get('/getProducts', productController.getAllProduct);  
 productRouter.post('/addProduct', productController.addProduct);
 productRouter.get('/filterProduct', productController.filterProduct);
 productRouter.get('/:id',productController.getOneProduct); 
