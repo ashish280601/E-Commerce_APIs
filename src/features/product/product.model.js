@@ -15,6 +15,11 @@ export default class ProductModel{
         return products; 
     }
 
+    static getOneProduct(id){
+        const product = products.find((i) => i.id == id)
+        return product;
+    }
+ 
     static add(product){
         product.id = products.length + 1;
         products.push(product);
@@ -34,7 +39,7 @@ var products = [
         ['M', 'XL']
     ),
     new ProductModel(
-        1,
+        2,
         'Product 2',
         'Description for product 2',
         'http://m.meida-amazon.com',
@@ -43,7 +48,7 @@ var products = [
         ['M', 'XM', 'L', 'S']
     ),
     new ProductModel(
-        1,
+        3,
         'Product 3',
         'Description for product 3',
         'http://m.meida-amazon.com',
@@ -52,7 +57,7 @@ var products = [
         ['M', 'XL','S']
     ),
     new ProductModel(
-        1,
+        4,
         'Product 4',
         'Description for product 4',
         'http://m.meida-amazon.com',

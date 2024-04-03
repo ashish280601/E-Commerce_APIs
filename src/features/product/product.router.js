@@ -13,7 +13,7 @@ const productController = new ProductController();
 productRouter.get('/getProducts', productController.getAllProduct);  
 productRouter.post('/addProduct', uploads.single('imageUrl'), productController.addProduct);
 productRouter.get('/filterProduct', productController.filterProduct);
-productRouter.get('/:id',productController.getOneProduct); 
+productRouter.get('/getProducts/:id',productController.getSingleProduct); 
 
 export default productRouter
 
