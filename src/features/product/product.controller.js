@@ -14,9 +14,19 @@ export default class ProductController{
         // write your code logic here
         console.log(req.body);
 
-        console.log('This is post request');
+        // destructing my req body
+        const { name, desc, price, category, size} = req.body;
+        const newProduct = {
+            name,
+            desc,
+            price: parseInt(price),
+            category,
+            size: size.split(','),
+            imageUrl: req.file.filename,
+        };
 
-        res.status(200).send('Post Request Successful')
+        const createdProduct = ProductModel.add(newProduct);
+        return res.status(201).send(createdProduct);
     }
     
     rateProduct(req, res){

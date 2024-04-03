@@ -1,6 +1,7 @@
 // 1. Import Express
 import express from 'express';
 import ProductController from './product.controller.js'; 
+import uploads from '../../middlewares/fileUpload.js';
 
 // 2. Initialize Express router.
 const productRouter = express.Router();
@@ -10,7 +11,7 @@ const productController = new ProductController();
 
 // All the paths to controller methods
 productRouter.get('/getProducts', productController.getAllProduct);  
-productRouter.post('/addProduct', productController.addProduct);
+productRouter.post('/addProduct', uploads.single('imageUrl'), productController.addProduct);
 productRouter.get('/filterProduct', productController.filterProduct);
 productRouter.get('/:id',productController.getOneProduct); 
 
