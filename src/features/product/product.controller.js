@@ -15,14 +15,14 @@ export default class ProductController{
         console.log(req.body);
 
         // destructing my req body
-        const { name, desc, price, category, size} = req.body;
+        const { name, desc, price, category, size, imageUrl} = req.body;
         const newProduct = {
             name,
             desc,
+            imageUrl: req.file.filename,
             price: parseInt(price),
             category,
             size: size.split(','),
-            imageUrl: req.file.filename,
         };
 
         const createdProduct = ProductModel.add(newProduct);
