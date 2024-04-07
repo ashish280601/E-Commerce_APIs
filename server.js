@@ -8,6 +8,8 @@ import morgan from "morgan";
 const server = express();
 server.use(morgan('dev'));
 
+server.use(express.json());
+
 // using body parser so backend get the request body data middleware
 server.use(bodyParser.json())
 

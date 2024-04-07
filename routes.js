@@ -1,5 +1,6 @@
 import express from "express";
 import productRouter from "./src/features/product/product.router.js";
+import userRouter from "./src/features/user/user.router.js";
 
 const router = express.Router();
 
@@ -10,6 +11,7 @@ router.get('/', (req, res) => {
     })
 })
 
+router.use('/api/users', userRouter);
 router.use('/api/products', productRouter)
 
 export default router
