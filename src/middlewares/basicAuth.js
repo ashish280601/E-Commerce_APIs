@@ -29,7 +29,7 @@ const basicAuthorizer = (req, res, next) => {
   if (user) {
     // next will send the next middleware function of an api
     next();
-    return res.status(201).send("Authorization Successful");
+    // return res.status(201).send("Authorization Successful");
   } else {
     return res.status(401).send("Incorrect Credential");
   }
