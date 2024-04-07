@@ -33,6 +33,16 @@ export default class ProductController {
 
   filterProduct(req, res) {
     // write your code logic here
+    const minPrice = parseFloat(req.query.minPrice);
+    const maxPrice = parseFloat(req.query.maxPrice);
+    const category = req.query.category;
+
+  //   if (isNaN(minPrice) || isNaN(maxPrice) || !category) {
+  //     return res.status(400).send("Invalid parameters");
+  // }
+    const filterResult = ProductModel.filterProduct(minPrice, maxPrice, category);
+    console.log(filterResult);
+    return res.status(200).send(filterResult); 
   }
 
   getSingleProduct(req, res) {
