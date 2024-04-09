@@ -25,15 +25,14 @@ export default class ProductModel {
     return product;
   }
 
-  static filterProduct(minPrice, maxPrice, category) {
+  static filterProduct(minPrice, maxPirce, category) {
     const result = products.filter((product) => {
       return (
-        (!minPrice || product.price >= minPrice) &&
-        (!maxPrice || product.price <= maxPrice) &&
-        (!category || product.category === category)
+        product.price >= minPrice &&
+        product.price <= maxPirce &&
+        product.category === category
       );
     });
-    return result;
   }
 }
 
@@ -45,7 +44,7 @@ var products = [
     "Description for product 1",
     "http://m.meida-amazon.com",
     19.99,
-    "Category1",
+    "Category 1",
     ["M", "XL"]
   ),
   new ProductModel(
@@ -54,7 +53,7 @@ var products = [
     "Description for product 2",
     "http://m.meida-amazon.com",
     500,
-    "Category2",
+    "Category 2",
     ["M", "XM", "L", "S"]
   ),
   new ProductModel(
@@ -63,7 +62,7 @@ var products = [
     "Description for product 3",
     "http://m.meida-amazon.com",
     1000,
-    "Category3",
+    "Category 3",
     ["M", "XL", "S"]
   ),
   new ProductModel(
@@ -72,7 +71,7 @@ var products = [
     "Description for product 4",
     "http://m.meida-amazon.com",
     1500,
-    "Category4",
+    "Category 4",
     ["M", "L", "S"]
   ),
 ];

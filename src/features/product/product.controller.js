@@ -14,7 +14,6 @@ export default class ProductController {
 
     // destructing my req body
     const { name, desc, price, category, size } = req.body;
-    // creating an instance for the product model
     const newProduct = {
       name,
       desc,
@@ -22,7 +21,7 @@ export default class ProductController {
       price: parseInt(price),
       category,
       size: size.split(","),
-    }; 
+    };
 
     const createdProduct = ProductModel.add(newProduct);
     return res.status(201).send(createdProduct);
@@ -34,20 +33,12 @@ export default class ProductController {
 
   filterProduct(req, res) {
     // write your code logic here
-    const minPrice = parseFloat(req.query.minPrice);
-    const maxPrice = parseFloat(req.query.maxPrice);
+    const minPrice = req.query.minPrice;
+    const maxPirce = req.query.maxPirce;
     const category = req.query.category;
 
-    //   if (isNaN(minPrice) || isNaN(maxPrice) || !category) {
-    //     return res.status(400).send("Invalid parameters");
-    // }
-    const filterResult = ProductModel.filterProduct(
-      minPrice,
-      maxPrice,
-      category
-    );
-    console.log(filterResult);
-    return res.status(200).send(filterResult);
+    const filterResult = ProductModel.filterProduct(minPrice, maxPirce, category);
+    return res.status(200).send(filterResult); 
   }
 
   getSingleProduct(req, res) {

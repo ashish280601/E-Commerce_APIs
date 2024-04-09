@@ -13,6 +13,6 @@ router.get('/', (req, res) => {
 })
 
 router.use('/api/users', userRouter);
-router.use('/api/products',basicAuthorizer, productRouter)
+router.use('/api/products', basicAuthorizer, productRouter);
 
 export default router
