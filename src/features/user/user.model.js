@@ -35,4 +35,11 @@ let users = [
     password: "mehraji123",
     type: "Seller",
   },
+  {
+    id: 2, 
+    name: "Jyoti Mehra",
+    email: "jyoti.mehra@gmail.com",
+    password: "jyoti@123",
+    type: "Customer"
+  },
 ];

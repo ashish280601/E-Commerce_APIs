@@ -8,5 +8,5 @@ APIs CheckList
 --> Rate product
 
 2. User Controller
----> SignUp ---> Email, Name, Password, TypeOfUser(customer, seller)
----> Signin ---> (Email, Password)
+---> SignUp ---> Email, Name, Password, TypeOfUser(customer, seller) -- Done.
+---> Signin ---> (Email, Password) -- Done.

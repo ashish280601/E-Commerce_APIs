@@ -16,7 +16,7 @@ const jwtAuth = (req, res, next) => {
         );
         console.log("payload", payload);
     } catch (error) {
-        // 4.return the error
+        // 4.return the errorj
         console.log("error", error);
         return res.status(401).send('Unauthorized');  
     }
