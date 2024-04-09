@@ -1,4 +1,7 @@
 import UserModel from "./user.model.js";
+import jwt from "jsonwebtoken";
+
+
 export default class UserController {
   signUp(req, res) {
     // write your code logic here
@@ -12,9 +15,21 @@ export default class UserController {
     const result = UserModel.signIn(req.body.email, req.body.password);
     if (!result) {
       return res.status(400).send("Invalid Credentials");
-    }else{
-        return res.status(200).send("Login Successful");
-    }
+    } else {
+      // create json token for successful login
+      // syntax jwt.sing(payload object, secretKey, optional object); 
 
+      console.log(process.env.SECRET_KEY);
+      const token = jwt.sign({
+        userID: result.id,
+        userEmail: result.email
+      }, process.env.SECRET_KEY,
+      {
+        expiresIn: '1h'
+      }
+    )
+
+      return res.status(200).send(token);
+    }
   }
 }

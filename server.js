@@ -3,10 +3,13 @@ import express from "express";
 import router from "./routes.js";
 import bodyParser from "body-parser";
 import morgan from "morgan";
+import dotenv from "dotenv";
 
 // 2. Creating an express server
+dotenv.config();
 const server = express();
 server.use(morgan('dev'));
+
 
 // using body parser so backend get the request body data middleware
 server.use(bodyParser.json())
