@@ -14,6 +14,7 @@ const jwtAuth = (req, res, next) => {
             token,
             process.env.SECRET_KEY
         );
+        req.userID = payload.userID;
         console.log("payload", payload);
     } catch (error) {
         // 4.return the errorj

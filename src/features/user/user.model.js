@@ -42,4 +42,11 @@ var users = [
     password: "jyoti@123",
     type: "Customer"
   },
+  {
+    id: 3, 
+    name: "Rakhi Mehra",
+    email: "rakhi.mehra@gmail.com",
+    password: "rakhi@123",
+    type: "Customer"
+  },
 ];

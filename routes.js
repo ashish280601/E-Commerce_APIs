@@ -3,6 +3,7 @@ import productRouter from "./src/features/product/product.router.js";
 import userRouter from "./src/features/user/user.router.js";
 import basicAuthorizer from "./src/middlewares/basicAuth.js";
 import jwtAuth from "./src/middlewares/jwt.middleware.js";
+import cartRouter from "./src/features/cart/cart.routes.js";
 
 const router = express.Router();
 
@@ -16,6 +17,7 @@ router.get('/', (req, res) => {
 router.use('/api/users', userRouter);
 // using json token authorization.
 router.use('/api/products', jwtAuth, productRouter);
+router.use('/api/cartItems', jwtAuth, cartRouter);
 
 // using basic auth
 // router.use('/api/products', basicAuthorizer, productRouter);
