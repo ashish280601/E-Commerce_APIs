@@ -6,6 +6,9 @@ APIs CheckList
 --> Get one product --- Done.
 --> Filter product --- Done.
 --> Rate product
+--> Add items to Cart
+--> Get items of Cart
+--> Remove items from cart.
 
 2. User Controller
 ---> SignUp ---> Email, Name, Password, TypeOfUser(customer, seller) -- Done.

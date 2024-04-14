@@ -11,6 +11,7 @@ const productController = new ProductController();
 
 // All the paths to controller methods
 productRouter.get('/getProducts', productController.getAllProduct);  
+productRouter.post('/getProducts/rateProduct',productController.rateProduct); 
 productRouter.post('/addProduct', uploads.single('imageUrl'), productController.addProduct);
 productRouter.get('/getProducts/filter', productController.filterProduct);
 productRouter.get('/getProducts/:id',productController.getSingleProduct); 

@@ -51,4 +51,19 @@ export default class ProductController {
       return res.status(200).json(singleProduct);
     }
   }
+
+  rateProduct(req, res){
+    console.log(req.query);
+    const userID = req.query.userID;
+    const productID = req.query.productID;
+    const rating = req.query.rating;
+
+    const rate = ProductModel.rateProduct(userID, productID, rating);
+    console.log(rate);
+    if(rate){
+      return res.status(400).send(rate)
+    }else{
+      return res.status(200).send('Rating Successful Added');
+    }
+  }
 }
