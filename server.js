@@ -1,27 +1,39 @@
 // 1. Importing Express
 import express from "express";
-import router from "./routes.js";
 import bodyParser from "body-parser";
 import morgan from "morgan";
 import dotenv from "dotenv";
+import cors from "cors";
+
+import router from "./routes.js";
 
 // 2. Creating an express server
 dotenv.config();
 const server = express();
 
-// CORS policy configuration using Headers 
+//Method 1: Using Manually CORS policy configuration using Headers 
+// server.use((req, res, next) => {
+//     // * defined that all type are allowed
+//     res.header('Access-Control-Allow-Origin', 'put-client-url-link');
+//     res.header('Access-Control-Allow-Headers', '*');
+//     res.header('Access-Control-Allow-Methods', '*');
+//     // return ok for preflight request
+//     if(req.method == 'OPTIONS'){
+//         return res.sendStatus(200);
+//     }
+//     next();
+// });
 
-server.use((req, res, next) => {
-    // * defined that all type are allowed
-    res.header('Access-Control-Allow-Origin', 'put-client-url-link');
-    res.header('Access-Control-Allow-Headers', '*');
-    res.header('Access-Control-Allow-Methods', '*');
-    // return ok for preflight request
-    if(req.method == 'OPTIONS'){
-        return res.sendStatus(200);
-    }
-    next();
-} )
+// CORS using 3 party library
+
+// giving access to the client side url
+var corsOptions = {
+    origin: 'http://localhost:5176',
+    allowedHeaders: '*'
+}
+
+server.use(cors(corsOptions));
+
 server.use(morgan('dev'));
 
 // using body parser so backend get the request body data middleware
