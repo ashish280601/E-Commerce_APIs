@@ -8,8 +8,21 @@ import dotenv from "dotenv";
 // 2. Creating an express server
 dotenv.config();
 const server = express();
-server.use(morgan('dev'));
 
+// CORS policy configuration using Headers 
+
+server.use((req, res, next) => {
+    // * defined that all type are allowed
+    res.header('Access-Control-Allow-Origin', 'put-client-url-link');
+    res.header('Access-Control-Allow-Headers', '*');
+    res.header('Access-Control-Allow-Methods', '*');
+    // return ok for preflight request
+    if(req.method == 'OPTIONS'){
+        return res.sendStatus(200);
+    }
+    next();
+} )
+server.use(morgan('dev'));
 
 // using body parser so backend get the request body data middleware
 server.use(bodyParser.json())
