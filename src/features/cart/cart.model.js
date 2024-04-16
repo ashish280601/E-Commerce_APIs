@@ -7,7 +7,12 @@ export default class CartItemModel {
   }
 
   static addCart(userID, productID, quantity) {
-    const cartItem = new CartItemModel(userID, productID, quantity);
+    console.log(quantity);
+    const cartItem = {
+      userID,
+      productID,
+      quantity
+    };
     cartItem.id = cartItems.length + 1;
     console.log(cartItem);
     cartItems.push(cartItem);

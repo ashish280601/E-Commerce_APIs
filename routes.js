@@ -19,6 +19,11 @@ router.use('/api/users', userRouter);
 router.use('/api/products', jwtAuth, productRouter);
 router.use('/api/cartItems', jwtAuth, cartRouter);
 
+// Middleware to handle not found routes
+router.use((req, res) => {
+    res.status(404).send("API's not found");
+})
+
 // using basic auth
 // router.use('/api/products', basicAuthorizer, productRouter);
 
