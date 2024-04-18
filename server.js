@@ -7,6 +7,7 @@ import cors from "cors";
 
 import router from "./routes.js";
 import loggerMiddleware from "./src/middlewares/logger.middleware.js";
+import connectToMongoDB from "./src/config/mongodb.js";
 
 // 2. Creating an express server
 dotenv.config();
@@ -56,5 +57,6 @@ server.get('/', (req, res) => {
 // 4 Listing an server in unique port number.
 server.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
+    connectToMongoDB();
 });
 
