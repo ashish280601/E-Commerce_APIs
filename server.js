@@ -6,11 +6,13 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import router from "./routes.js";
+import loggerMiddleware from "./src/middlewares/logger.middleware.js";
 
 // 2. Creating an express server
 dotenv.config();
 const server = express();
 
+server.use(loggerMiddleware)
 //Method 1: Using Manually CORS policy configuration using Headers 
 // server.use((req, res, next) => {
 //     // * defined that all type are allowed
