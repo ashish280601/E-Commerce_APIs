@@ -1,1 +1,2 @@
 {"level":"info","message":"/api/products/getProducts - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/getProduct - {}","service":"request-logging"}
