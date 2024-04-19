@@ -59,6 +59,11 @@ server.get('/', (req, res) => {
     res.send('Welcome To E-Commerce Trendio APIs')
 });
 
+server.use((err, req, res, next) => {
+    console.log(err);
+    res.status(503).send('Something went wrong.Please try again later');
+})
+
 // 4 Listing an server in unique port number.
 server.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
