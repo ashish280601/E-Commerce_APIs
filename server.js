@@ -13,7 +13,7 @@ import connectToMongoDB from "./src/config/mongodb.js";
 dotenv.config();
 const server = express();
 
-server.use(loggerMiddleware)
+
 //Method 1: Using Manually CORS policy configuration using Headers 
 // server.use((req, res, next) => {
 //     // * defined that all type are allowed
@@ -39,8 +39,13 @@ server.use(cors(corsOptions));
 
 server.use(morgan('dev'));
 
+
+
 // using body parser so backend get the request body data middleware
 server.use(bodyParser.json())
+
+server.use(loggerMiddleware)
+
 
 // setting up a parent routes files to all the router of an APIs.
 server.use(router)

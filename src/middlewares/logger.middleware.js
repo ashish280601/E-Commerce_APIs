@@ -6,7 +6,7 @@ import fs from "fs";
 
 const fsPromise = fs.promises;
 
-// 2. Create a file to store a log every request of an client.
+// 2. Create a function file to store a log every request of an client.
 async function log(logData) {
   try {
     logData = `\n ${new Date().toString()} - ${logData}`;
@@ -24,6 +24,6 @@ const loggerMiddleware = async (req, res, next) => {
     await log(logData);
   }
   next();
-};
+};   
 
 export default loggerMiddleware;
