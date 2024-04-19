@@ -37,8 +37,12 @@ export default class ProductController {
     const maxPirce = req.query.maxPirce;
     const category = req.query.category;
 
-    const filterResult = ProductModel.filterProduct(minPrice, maxPirce, category);
-    return res.status(200).send(filterResult); 
+    const filterResult = ProductModel.filterProduct(
+      minPrice,
+      maxPirce,
+      category
+    );
+    return res.status(200).send(filterResult);
   }
 
   getSingleProduct(req, res) {
@@ -52,18 +56,18 @@ export default class ProductController {
     }
   }
 
-  rateProduct(req, res){
+  rateProduct(req, res) {
     console.log(req.query);
     const userID = req.query.userID;
     const productID = req.query.productID;
     const rating = req.query.rating;
 
-    const rate = ProductModel.rateProduct(userID, productID, rating);
-    console.log(rate);
-    if(rate){
-      return res.status(400).send(rate)
-    }else{
-      return res.status(200).send('Rating Successful Added');
+    try {
+      ProductModel.rateProduct(userID, productID, rating);
+    } catch (error) {
+      console.log(error);
+      return res.status(400).send(error.message);
     }
+    return res.status(200).send("Rating Successful Added");
   }
 }
