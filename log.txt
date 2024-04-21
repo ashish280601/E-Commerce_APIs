@@ -36,3 +36,25 @@
 {"level":"info","message":"/api/users/sigin - {\"email\":\"asmehra2@gmail.com\",\"password\":\"Mehra2@#\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signup - {\"name\":\"Ashish Mehra\",\"email\":\"asmehra2001@gmail.com\",\"password\":\"Mehra_0628@#\",\"type\":\"Customer\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signup - {\"name\":\"Avtar Singh Mehra\",\"email\":\"avtar@gmail.com\",\"password\":\"avtar_@#\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/products/addProduct - {\"name\":\"Harry Potter Novel\",\"desc\":\"A story of an harry potter session 1\",\"imageUrl\":\"https://m.media-amazon.com/images/M/MV5BNmQ0ODBhMjUtNDRhOC00MGQzLTk5MTAtZDliODg5NmU5MjZhXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_.jpg\",\"price\":500,\"category\":\"Books\",\"size\":3}","service":"request-logging"}
+{"level":"info","message":"/api/products/addProduct - {\"name\":\"Harry Potter Novel\",\"desc\":\"A story of an harry potter session 1\",\"imageUrl\":\"https://m.media-amazon.com/images/M/MV5BNmQ0ODBhMjUtNDRhOC00MGQzLTk5MTAtZDliODg5NmU5MjZhXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_.jpg\",\"price\":500,\"category\":\"Books\",\"size\":3}","service":"request-logging"}
+{"level":"info","message":"/api/products/addProduct?name=Harry%20Potter&desc=A%20harry%20potter%20session%201&imageUrl=https://m.media-amazon.com/images/M/MV5BNmQ0ODBhMjUtNDRhOC00MGQzLTk5MTAtZDliODg5NmU5MjZhXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_.jpg - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/addProduct - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/addProduct - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/addProduct - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/addProduct - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/getProducts - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/getProducts - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/getProducts - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/getProducts - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/getProducts - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/getProducts - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/getProducts - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/getProducts - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/getProducts/6624f5aa99a349d691d98159 - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/getProducts/6624f5aa99a349d691d98159 - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/getProducts/6624f5aa99a349d691d98159 - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/getProducts/6624f5aa99a349d691d98159 - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/getProducts/6624f5aa99a349d691d98159 - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/getProducts/6624f5aa99a349d691d98159 - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/getProducts/6624f5aa99a349d691d98159 - {}","service":"request-logging"}

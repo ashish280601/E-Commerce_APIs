@@ -3,30 +3,29 @@ import UserModel from "../user/user.model.js";
 
 export default class ProductModel {
   // creating a hardcoded database filed.
-  constructor(id, name, desc, imageUrl, price, category, size) {
-    (this.id = id),
-      (this.name = name),
-      (this.desc = desc),
-      (this.imageUrl = imageUrl),
-      (this.price = price),
-      (this.category = category),
-      (this.size = size);
+  constructor(name, desc, imageUrl, price, category, size) {
+    this.name = name;
+    this.desc = desc;
+    this.imageUrl = imageUrl;
+    this.price = price;
+    this.category = category;
+    this.size = size;
   }
 
-  static getAll() {
-    return products;
-  }
+  // static getAll() {
+  //   return products;
+  // }
 
-  static getOneProduct(id) {
-    const product = products.find((i) => i.id == id);
-    return product;
-  }
+  // static getOneProduct(id) {
+  //   const product = products.find((i) => i.id == id);
+  //   return product;
+  // }
 
-  static add(product) {
-    product.id = products.length + 1;
-    products.push(product);
-    return product;
-  }
+  // static add(product) {
+  //   product.id = products.length + 1;
+  //   products.push(product);
+  //   return product;
+  // }
 
   static filterProduct(minPrice, maxPirce, category) {
     const result = products.filter((product) => {
@@ -38,43 +37,43 @@ export default class ProductModel {
     });
   }
 
-  static rateProduct(userID, productID, rating){
+  static rateProduct(userID, productID, rating) {
     // 1. Validate User and Product
-    const user = UserModel.getAllUser().find( u => u.id == userID);
+    const user = UserModel.getAllUser().find((u) => u.id == userID);
     console.log(user);
-    if(!user){
-      throw new ApplicationErrors('User not found', 404);
+    if (!user) {
+      throw new ApplicationErrors("User not found", 404);
     }
     // check product
-    const product = products.find( p => p.id == productID);
-    if(!product){
-      throw new ApplicationErrors('Product not found', 404);
+    const product = products.find((p) => p.id == productID);
+    if (!product) {
+      throw new ApplicationErrors("Product not found", 404);
     }
 
     // 2. Check if there are any ratings if not then add ratings array.
-    if(!product.ratings){
+    if (!product.ratings) {
       product.ratings = [];
       product.ratings.push({
         userID,
-        rating
-      })
-    }else{
+        rating,
+      });
+    } else {
       // 3. check if the user rating is already available then update.
       const existingRatingIndex = product.ratings.findIndex(
-        rating => rating.userID === userID
-      )
+        (rating) => rating.userID === userID
+      );
 
-      if(existingRatingIndex >= 0) {
+      if (existingRatingIndex >= 0) {
         product.ratings[existingRatingIndex] = {
           userID,
-          rating
-        }
-      }else{
+          rating,
+        };
+      } else {
         //4. if no existing rating, then add new rating.
         product.ratings.push({
           userID,
-          rating
-        })
+          rating,
+        });
       }
     }
   }
