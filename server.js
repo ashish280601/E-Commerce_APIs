@@ -1,8 +1,8 @@
 // 1. Importing Express
+import "./env.js";
 import express from "express";
 import bodyParser from "body-parser";
 import morgan from "morgan";
-import dotenv from "dotenv";
 import cors from "cors";
 
 import router from "./routes.js";
@@ -11,7 +11,6 @@ import connectToMongoDB from "./src/config/mongodb.js";
 import { ApplicationErrors } from "./src/error-handler/applicationError.js";
 
 // 2. Creating an express server
-dotenv.config();
 const server = express();
 
 //Method 1: Using Manually CORS policy configuration using Headers
