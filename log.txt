@@ -35,3 +35,4 @@
 {"level":"info","message":"/api/users/sigin - {\"email\":\"asmehra2@gmail.com\",\"password\":\"Mehra2@#\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/sigin - {\"email\":\"asmehra2@gmail.com\",\"password\":\"Mehra2@#\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signup - {\"name\":\"Ashish Mehra\",\"email\":\"asmehra2001@gmail.com\",\"password\":\"Mehra_0628@#\",\"type\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Avtar Singh Mehra\",\"email\":\"avtar@gmail.com\",\"password\":\"avtar_@#\",\"type\":\"Seller\"}","service":"request-logging"}
