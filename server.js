@@ -67,6 +67,6 @@ server.use((err, req, res, next) => {
 
 // 4 Listing an server in unique port number.
 server.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
   connectToMongoDB();
+  console.log(`Server is listening on port ${port}`);
 });

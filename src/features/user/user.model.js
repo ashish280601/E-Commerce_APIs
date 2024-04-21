@@ -1,52 +1,47 @@
+import { getDB } from "../../config/mongodb.js";
+import { ApplicationErrors } from "../../error-handler/applicationError.js";
+
 export default class UserModel {
   // creating a constructor
-  constructor(id, name, email, password, type) {
-    (this.id = id),
-      (this.name = name),
-      (this.email = email),
-      (this.password = password),
-      (this.type = type);
+  constructor(name, email, password, type) {
+    this.name = name;
+    this.email = email;
+    this.password = password;
+    this.type = type;
   }
 
-  static signUp(name, email, password, type) {
-    const newUser = new UserModel(name, email, password, type);
-    newUser.id = users.length + 1
-    users.push(newUser);
-    return newUser;
-  }
+  // static async signUp(name, email, password, type) {
+  //   try {
+  //     // 1. Getting a database
+  //     const db = getDB();
 
-  static signIn(email, password) {
-    const user = users.find(
-      (u) => u.email === email && u.password === password
-    );
-    return user;
-  }
+  //     // 2. Creating an collection.
+  //     const userCollection = db.collection("users");
 
-  static getAllUser(){
+  //     const newUser = { name, email, password, type };
+  //     // 3. insert the data from an client to the user collection
+  //     await userCollection.insertOne(newUser);
+  //   } catch (error) {
+  //     console.log(error);
+  //     throw new ApplicationErrors("Something went wrongs", 500);
+  //   }
+  // }
+
+  // static async signIn(email, password) {
+  //   try {
+  //     const db = getDB();
+
+  //     const userLogin = db.collection("users");
+
+  //     const user = userLogin.findOne({ email, password });
+  //     return user;
+  //   } catch (error) {
+  //     console.log(error);
+  //     throw new ApplicationErrors("Something went wrong with database", 500);
+  //   }
+  // }
+
+  static getAllUser() {
     return users;
   }
 }
-
-var users = [
-  {
-    id: 1, 
-    name: "Ashish Mehra",
-    email: "asmehra@gmail.com",
-    password: "mehraji123",
-    type: "Seller",
-  },
-  {
-    id: 2, 
-    name: "Jyoti Mehra",
-    email: "jyoti.mehra@gmail.com",
-    password: "jyoti@123",
-    type: "Customer"
-  },
-  {
-    id: 3, 
-    name: "Rakhi Mehra",
-    email: "rakhi.mehra@gmail.com",
-    password: "rakhi@123",
-    type: "Customer"
-  },
-];
