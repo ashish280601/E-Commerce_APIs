@@ -27,15 +27,15 @@ export default class ProductModel {
   //   return product;
   // }
 
-  static filterProduct(minPrice, maxPirce, category) {
-    const result = products.filter((product) => {
-      return (
-        product.price >= minPrice &&
-        product.price <= maxPirce &&
-        product.category === category
-      );
-    });
-  }
+  // static filterProduct(minPrice, maxPirce, category) {
+  //   const result = products.filter((product) => {
+  //     return (
+  //       product.price >= minPrice &&
+  //       product.price <= maxPirce &&
+  //       product.category === category
+  //     );
+  //   });
+  // }
 
   static rateProduct(userID, productID, rating) {
     // 1. Validate User and Product

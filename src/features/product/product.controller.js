@@ -45,18 +45,23 @@ export default class ProductController {
     }
   }
 
-  filterProduct(req, res) {
+  async filterProduct(req, res) {
     // write your code logic here
-    const minPrice = req.query.minPrice;
-    const maxPirce = req.query.maxPirce;
-    const category = req.query.category;
+    try {
+      const minPrice = req.query.minPrice;
+      const maxPrice = req.query.maxPrice;
+      const category = req.query.category;
 
-    const filterResult = ProductModel.filterProduct(
-      minPrice,
-      maxPirce,
-      category
-    );
-    return res.status(200).send(filterResult);
+      const filterResult = await this.productRepository.filterProducts(
+        minPrice,
+        maxPrice,
+        category
+      );
+      return res.status(200).send(filterResult);
+    } catch (error) {
+      console.log(error);
+      return res.status(500).send("Something went wrongs");
+    }
   }
 
   async getSingleProduct(req, res) {
@@ -76,18 +81,21 @@ export default class ProductController {
     }
   }
 
-  rateProduct(req, res) {
-    console.log(req.query);
-    const userID = req.query.userID;
-    const productID = req.query.productID;
-    const rating = req.query.rating;
-
+  async rateProduct(req, res) {
     try {
-      ProductModel.rateProduct(userID, productID, rating);
+      console.log(req.query);
+      const userID = req.userID;
+      const productID = req.query.productID;
+      const rating = req.query.rating;
+      await this.productRepository.rateProduct(
+        userID,
+        productID,
+        rating
+      );
+      return res.status(200).send("Rating Successful Added");
     } catch (error) {
       console.log(error);
       return res.status(400).send(error.message);
     }
-    return res.status(200).send("Rating Successful Added");
   }
 }

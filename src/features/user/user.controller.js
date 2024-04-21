@@ -46,8 +46,8 @@ export default class UserController {
           console.log(process.env.SECRET_KEY);
           const token = jwt.sign(
             {
-              userID: result.id,
-              userEmail: result.email,
+              userID: user._id,
+              userEmail: user.email,
             },
             process.env.SECRET_KEY,
             {
