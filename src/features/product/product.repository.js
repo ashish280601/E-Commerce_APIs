@@ -81,13 +81,60 @@ class ProductRepository {
     }
   }
 
+  // Method 1 To update the rating of an user
+
+  // async rateProduct(userID, productID, rating) {
+  //   try {
+  //     const db = getDB();
+
+  //     const productCollection = db.collection(this.collection);
+  //     // 1. Find the products
+  //     const product = await productCollection.findOne( { _id: new ObjectId(productID)});
+  //     // 2. Find the rating 
+  //     const userRating = product?.ratings?.find( r => r.userID == userID);
+  //     if(userRating){
+  //       // 3. If the user rate is there then update the rating.
+  //       await productCollection.updateOne({
+  //         _id: new ObjectId(productID), "ratings.userID": new ObjectId(userID)
+  //       },{
+  //         $set:{
+  //           "ratings.$.rating": rating
+  //         }
+  //       })
+  //     }else{
+  //       await productCollection.updateOne(
+  //         {
+  //           _id: new ObjectId(productID),
+  //         },
+  //         {
+  //           $push: { ratings: { userID: new ObjectId(userID), rating } },
+  //         }
+  //       );
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //     throw new ApplicationErrors("Something went wrongs with database", 500);
+  //   }
+  // }
+
+  // Method 2 
+
   async rateProduct(userID, productID, rating) {
     try {
       const db = getDB();
 
       const productCollection = db.collection(this.collection);
-
-      return await productCollection.updateOne(
+      // 1. Remove existing extry
+      await productCollection.updateOne(
+        {
+          _id: new ObjectId(productID),
+        },
+        {
+          $pull: { ratings: { userID: new ObjectId(userID)} },
+        }
+      );
+      // 2. Add new entry
+      await productCollection.updateOne(
         {
           _id: new ObjectId(productID),
         },
