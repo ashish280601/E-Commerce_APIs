@@ -25,12 +25,21 @@ export default class CartRepository {
       const db = getDB();
 
       const cartCollection = db.collection(this.collection);
-
-      return await cartCollection.insertOne({
-        userID: new ObjectId(userID),
-        productID: new ObjectId(productID),
-        quantity,
-      });
+      // find the document
+      // either insert or update
+      // Insertion.
+      return await cartCollection.updateOne(
+        {
+          userID: new ObjectId(userID),
+          productID: new ObjectId(productID),
+        },
+        {
+          $inc: { quantity: quantity },
+        },
+        {
+          upsert: true,
+        }
+      );
     } catch (error) {
       console.log(error);
       throw new Error("Something went wrong with database");
@@ -45,8 +54,8 @@ export default class CartRepository {
       const cartCollection = db.collection(this.collection);
 
       const result = await cartCollection.deleteOne({
-          userID: new ObjectId(userID),
-          _id: new ObjectId(cartItemID),
+        userID: new ObjectId(userID),
+        _id: new ObjectId(cartItemID),
       });
       return result.deletedCount > 0;
     } catch (error) {
