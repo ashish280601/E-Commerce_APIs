@@ -1,9 +1,9 @@
 export default class CartItemModel {
-  constructor(id, userID, productID, quantity) {
-    (this.id = id),
-      (this.userID = userID),
-      (this.productID = productID),
-      (this.quantity = quantity);
+  constructor(userID, productID, quantity, id) {
+    this._id = id;
+    this.userID = userID;
+    this.productID = productID;
+    this.quantity = quantity;
   }
 
   static addCart(userID, productID, quantity) {
@@ -11,7 +11,7 @@ export default class CartItemModel {
     const cartItem = {
       userID,
       productID,
-      quantity
+      quantity,
     };
     cartItem.id = cartItems.length + 1;
     console.log(cartItem);
