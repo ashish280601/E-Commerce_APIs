@@ -142,3 +142,6 @@
 {"level":"info","message":"/api/cartItems/getCart - {\"productID\":\"6625647ebd37a6d4087adc9f\",\"quantity\":6}","service":"request-logging"}
 {"level":"info","message":"/api/cartItems/getCart - {\"productID\":\"6625647ebd37a6d4087adc9f\",\"quantity\":6}","service":"request-logging"}
 {"level":"info","message":"/api/cartItems/66312796f9130c01aac87310 - {\"productID\":\"6625647ebd37a6d4087adc9f\",\"quantity\":6}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems/663127a6f9130c01aac87311 - {\"productID\":\"6625647ebd37a6d4087adc9f\",\"quantity\":6}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems/66312774f9130c01aac8730f - {}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems/66312774f9130c01aac8730f - {}","service":"request-logging"}

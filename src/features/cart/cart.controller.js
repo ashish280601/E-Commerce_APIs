@@ -39,7 +39,10 @@ export default class CartController {
       // wriite your code logic here
       const userID = req.userID;
       const cartItemID = req.params.id;
-      await this.cartRepository.delCart(userID, cartItemID);
+      const isDeleted =  await this.cartRepository.delCart(userID, cartItemID);
+      if(!isDeleted){
+        return res.status(400).send("Item not found");
+      }
       return res.status(200).send("Cart Item is removed");
     } catch (error) {
       console.log(error);
