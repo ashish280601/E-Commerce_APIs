@@ -1,4 +1,4 @@
-import { ObjectId } from "mongodb";
+import { ObjectId, ReturnDocument } from "mongodb";
 import { getDB } from "../../config/mongodb.js";
 export default class CartRepository {
   constructor() {
@@ -25,6 +25,7 @@ export default class CartRepository {
       const db = getDB();
 
       const cartCollection = db.collection(this.collection);
+      const id = await this.getNextCounter(db)
       // find the document
       // either insert or update
       // Insertion.
@@ -34,6 +35,7 @@ export default class CartRepository {
           productID: new ObjectId(productID),
         },
         {
+          $setOnInsert: { _id: id},
           $inc: { quantity: quantity },
         },
         {
@@ -62,5 +64,22 @@ export default class CartRepository {
       console.log(error);
       throw new Error("Something went wrong with database");
     }
+  }
+
+  async getNextCounter(db){
+    // write your code logic here.
+    const resultCounter = await db.collection("counters").findOneAndUpdate(
+      {
+        _id: "cartItemID"
+      },
+      {
+        $inc: {value: 1}
+      },
+      {
+        returnDocument: 'after'
+      }
+    );
+    console.log(resultCounter);
+    return resultCounter.value
   }
 }

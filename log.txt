@@ -149,3 +149,14 @@
 {"level":"info","message":"/api/cartItems/addCart - {\"productID\":\"6625647ebd37a6d4087adc9f\",\"quantity\":6}","service":"request-logging"}
 {"level":"info","message":"/api/cartItems/663128e9ebc44a16de9df649 - {\"productID\":\"6625647ebd37a6d4087adc9f\",\"quantity\":6}","service":"request-logging"}
 {"level":"info","message":"/api/cartItems/663128e9ebc44a16de9df649 - {\"productID\":\"6625647ebd37a6d4087adc9f\",\"quantity\":6}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems/663128e9ebc44a16de9df649 - {\"productID\":\"6625647ebd37a6d4087adc9f\",\"quantity\":10}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems/addCart - {\"productID\":\"6625647ebd37a6d4087adc9f\",\"quantity\":10}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems/addCart - {\"productID\":\"6625647ebd37a6d4087adc9f\",\"quantity\":8}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems/addCart - {\"productID\":\"6625647ebd37a6d4087adc9f\",\"quantity\":8}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems/addCart - {\"productID\":\"6625647ebd37a6d4087adc9f\",\"quantity\":8}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems/addCart - {\"productID\":\"6625647ebd37a6d4087adc9f\",\"quantity\":8}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems/addCart - {\"productID\":\"6624f5aa99a349d691d98159\",\"quantity\":8}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems/addCart - {\"productID\":\"6624f5aa99a349d691d98159\",\"quantity\":8}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems/addCart - {\"productID\":\"6624f5aa99a349d691d98159\",\"quantity\":8}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems/addCart - {\"productID\":\"66256473bd37a6d4087adc9e\",\"quantity\":6}","service":"request-logging"}
+{"level":"info","message":"/api/cartItems/addCart - {\"productID\":\"6625647ebd37a6d4087adc9f\",\"quantity\":4}","service":"request-logging"}
