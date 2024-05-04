@@ -73,7 +73,8 @@ class ProductRepository {
       if (category) {
         filterExpression.category = category;
       }
-      return await productCollection.find(filterExpression).toArray();
+      // projection operators.
+      return await productCollection.find(filterExpression).project({ name:1, price:1, _id:0, ratings:{$slice:1} }).toArray();
     } catch (error) {
       console.log(error);
       loggerMiddleware(error);
@@ -145,6 +146,27 @@ class ProductRepository {
     } catch (error) {
       console.log(error);
       throw new ApplicationErrors("Something went wrongs with database", 500);
+    }
+  }
+
+  // ################# Aggregation Pipeline Concept ####################
+
+  // Calculating an average price of an product per category using aggreagation pipleline.\
+  async avgProductPricePerCategory(){
+    try {
+      const db = getDB();
+      return await db.collection(this.collection).aggregate([
+        // Grouping an document based on the product cateogry
+        {
+          $group: {
+            _id: "$category",
+            price: { $avg: "$price"}
+          }
+        }
+      ]).toArray();
+    } catch (error) {
+      console.log(error);
+      res.status(400).send("Something went wrong with database")
     }
   }
 }

@@ -19,9 +19,15 @@ productRouter.post("/getProducts/rateProduct", (req, res) => {
 productRouter.post("/addProduct", uploads.single("imageUrl"), (req, res) => {
   productController.addProduct(req, res);
 });
+
 productRouter.get("/getProducts/filter", (req, res) => {
   productController.filterProduct(req, res);
 });
+
+productRouter.get("/getProducts/avgPrice", (req, res) => {
+  productController.averagePrice(req, res);
+})
+
 productRouter.get("/getProducts/:id", (req, res) => {
   productController.getSingleProduct(req, res);
 });
