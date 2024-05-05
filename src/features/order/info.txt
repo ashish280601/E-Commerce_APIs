@@ -1,0 +1,12 @@
+Place Order Features
+
+1. Get cart items of user & calculate the totalAmount.
+2. Create a record for order.
+3. Reduce the stock of an products
+4. Clear the cart
+
+Option Features that can also perform
+
+5. Deduct the payment.
+6. Inform the sellers.
+7. Inform to coureir.
