@@ -109,4 +109,26 @@ export default class ProductController {
       return res.status(400).send("Something went wrong while calculating average price");
     }
   }
+
+  async averageRate(req, res){
+    try {
+      const resultRating = await this.productRepository.averageRating();
+      console.log("resultRating", resultRating);
+      return res.status(200).send(resultRating);
+    } catch (error) {
+      console.log(error);
+      return res.status(400).send("Something went wrong while calculating average rating");
+    }
+  }
+
+  async countRatingPerProduct(req, res){
+    try {
+      const countRatingResult = await this.productRepository.countRatingPerProduct();
+      console.log("countRatingResult", countRatingResult);
+      return res.status(200).send(countRatingResult);
+    } catch (error) {
+      console.log(error);
+      return res.status(400).send("Something went wrongs");
+    }
+  }
 }

@@ -26,7 +26,15 @@ productRouter.get("/getProducts/filter", (req, res) => {
 
 productRouter.get("/getProducts/avgPrice", (req, res) => {
   productController.averagePrice(req, res);
-})
+});
+
+productRouter.get("/getProducts/averageRate", (req, res) => {
+  productController.averageRate(req, res);
+});
+
+productRouter.get("/getProducts/countRating", (req, res) => {
+  productController.countRatingPerProduct(req, res);
+});
 
 productRouter.get("/getProducts/:id", (req, res) => {
   productController.getSingleProduct(req, res);

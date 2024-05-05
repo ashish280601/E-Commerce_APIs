@@ -74,7 +74,10 @@ class ProductRepository {
         filterExpression.category = category;
       }
       // projection operators.
-      return await productCollection.find(filterExpression).project({ name:1, price:1, _id:0, ratings:{$slice:1} }).toArray();
+      return await productCollection
+        .find(filterExpression)
+        .project({ name: 1, price: 1, _id: 0, ratings: { $slice: 1 } })
+        .toArray();
     } catch (error) {
       console.log(error);
       loggerMiddleware(error);
@@ -91,7 +94,7 @@ class ProductRepository {
   //     const productCollection = db.collection(this.collection);
   //     // 1. Find the products
   //     const product = await productCollection.findOne( { _id: new ObjectId(productID)});
-  //     // 2. Find the rating 
+  //     // 2. Find the rating
   //     const userRating = product?.ratings?.find( r => r.userID == userID);
   //     if(userRating){
   //       // 3. If the user rate is there then update the rating.
@@ -118,7 +121,7 @@ class ProductRepository {
   //   }
   // }
 
-  // Method 2 
+  // Method 2
 
   async rateProduct(userID, productID, rating) {
     try {
@@ -131,7 +134,7 @@ class ProductRepository {
           _id: new ObjectId(productID),
         },
         {
-          $pull: { ratings: { userID: new ObjectId(userID)} },
+          $pull: { ratings: { userID: new ObjectId(userID) } },
         }
       );
       // 2. Add new entry
@@ -152,21 +155,83 @@ class ProductRepository {
   // ################# Aggregation Pipeline Concept ####################
 
   // Calculating an average price of an product per category using aggreagation pipleline.\
-  async avgProductPricePerCategory(){
+  async avgProductPricePerCategory() {
     try {
       const db = getDB();
-      return await db.collection(this.collection).aggregate([
-        // Grouping an document based on the product cateogry
-        {
-          $group: {
-            _id: "$category",
-            price: { $avg: "$price"}
-          }
-        }
-      ]).toArray();
+      return await db
+        .collection(this.collection)
+        .aggregate([
+          // Grouping an document based on the product cateogry
+          {
+            $group: {
+              _id: "$category",
+              price: { $avg: "$price" },
+            },
+          },
+        ])
+        .toArray();
     } catch (error) {
       console.log(error);
-      res.status(400).send("Something went wrong with database")
+      return res.status(400).send("Something went wrong with database");
+    }
+  }
+
+  async averageRating() {
+    try {
+      const db = getDB();
+      return await db
+        .collection(this.collection)
+        .aggregate([
+          // 1. Deconstructing my nested array into an per document rating field.
+          {
+            $unwind: "$ratings",
+          },
+          // 2. Grouping my ratings and calculating an average rating.
+          {
+            $group: {
+              _id: "$name",
+              avgRate: { $avg: "$ratings.rating" },
+            },
+          },
+        ])
+        .toArray();
+    } catch (error) {
+      console.log(error);
+      return res.status(400).send("Something went wrong with database");
+    }
+  }
+
+  async countRatingPerProduct() {
+    try {
+      const db = getDB();
+
+      const countRating = await db.collection(this.collection).aggregate([
+        // limit the size of an filed per document usingt projection
+        {
+          $project: {
+            name: 1,
+            countOfRating: {
+              $cond: {
+                if: { $isArray: "$ratings"},
+                then: { $size: "$ratings" },
+                else: 0,
+              },
+            },
+          },
+        },
+        // sorting the collection
+        {
+          $sort: { countRatingPerProduct: -1}
+        },
+        // limiting the result to shown only 1 item 
+        {
+          $limit: 1
+        }
+      ]).toArray();
+      return countRating;
+    } catch (error) {
+      console.log(error);
+      return res.status(400).send("Something went wrong with database");
     }
   }
 }
