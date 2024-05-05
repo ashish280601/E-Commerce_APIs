@@ -202,3 +202,17 @@
 {"level":"info","message":"/api/products/getProducts/countRating - {\"email\":\"asmehra@gmail.com\",\"password\":\"mehraji123\"}","service":"request-logging"}
 {"level":"info","message":"/api/products/getProducts/countRating - {\"email\":\"asmehra@gmail.com\",\"password\":\"mehraji123\"}","service":"request-logging"}
 {"level":"info","message":"/api/products/getProducts/countRating - {\"email\":\"asmehra@gmail.com\",\"password\":\"mehraji123\"}","service":"request-logging"}
+{"level":"info","message":"/api/orders - {\"email\":\"asmehra@gmail.com\",\"password\":\"mehraji123\"}","service":"request-logging"}
+{"level":"info","message":"/api/orders - {\"email\":\"asmehra@gmail.com\",\"password\":\"mehraji123\"}","service":"request-logging"}
+{"level":"info","message":"/api/orders - {\"email\":\"asmehra@gmail.com\",\"password\":\"mehraji123\"}","service":"request-logging"}
+{"level":"info","message":"/api/orders - {\"email\":\"asmehra@gmail.com\",\"password\":\"mehraji123\"}","service":"request-logging"}
+{"level":"info","message":"/api/orders - {\"email\":\"asmehra@gmail.com\",\"password\":\"mehraji123\"}","service":"request-logging"}
+{"level":"info","message":"/api/orders - {\"email\":\"asmehra@gmail.com\",\"password\":\"mehraji123\"}","service":"request-logging"}
+{"level":"info","message":"/api/orders - {\"email\":\"asmehra@gmail.com\",\"password\":\"mehraji123\"}","service":"request-logging"}
+{"level":"info","message":"/api/orders - {\"email\":\"asmehra@gmail.com\",\"password\":\"mehraji123\"}","service":"request-logging"}
+{"level":"info","message":"/api/orders/ - {\"email\":\"asmehra@gmail.com\",\"password\":\"mehraji123\"}","service":"request-logging"}
+{"level":"info","message":"/api/orders - {\"email\":\"asmehra@gmail.com\",\"password\":\"mehraji123\"}","service":"request-logging"}
+{"level":"info","message":"/api/orders - {\"email\":\"asmehra@gmail.com\",\"password\":\"mehraji123\"}","service":"request-logging"}
+{"level":"info","message":"/api/orders - {\"email\":\"asmehra@gmail.com\",\"password\":\"mehraji123\"}","service":"request-logging"}
+{"level":"info","message":"/api/orders - {\"email\":\"asmehra@gmail.com\",\"password\":\"mehraji123\"}","service":"request-logging"}
+{"level":"info","message":"/api/orders - {\"email\":\"asmehra@gmail.com\",\"password\":\"mehraji123\"}","service":"request-logging"}
