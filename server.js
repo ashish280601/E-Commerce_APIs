@@ -9,6 +9,7 @@ import router from "./routes.js";
 import loggerMiddleware from "./src/middlewares/logger.middleware.js";
 import connectToMongoDB from "./src/config/mongodb.js";
 import { ApplicationErrors } from "./src/error-handler/applicationError.js";
+import { connectUsingMongoose } from "./src/config/mongooseConfig.js";
 
 // 2. Creating an express server
 const server = express();
@@ -27,6 +28,7 @@ const server = express();
 // });
 
 // CORS using 3 party library
+
 
 // giving access to the client side url
 var corsOptions = {
@@ -66,6 +68,7 @@ server.use((err, req, res, next) => {
 
 // 4 Listing an server in unique port number.
 server.listen(port, () => {
-  connectToMongoDB();
+  // connectToMongoDB();
+  connectUsingMongoose();
   console.log(`Server is listening on port ${port}`);
 });
