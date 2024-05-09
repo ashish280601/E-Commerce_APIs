@@ -8,7 +8,7 @@ export const userSchema = new mongoose.Schema({
         type: String,
         unqiue: true
     },
-    pasword:{
+    password:{
         type: String
     },
     type:{
