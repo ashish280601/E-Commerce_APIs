@@ -34,4 +34,18 @@ export default class UserRepository {
         throw new Error("Something went wrong with database", 500)
     }
   }
+
+  // resetpPassword Respository
+  async resetPassword(userID, newPassword){
+    try {
+      // finding the user from users database
+      const user = await UserModel.findById(userID);
+      // setting a new passwor to the particular users
+      user.password = newPassword;
+      user.save();
+    } catch (error) {
+      console.log(error);
+      throw new Error("Something went wrong with database", 500);
+    }
+  }
 }

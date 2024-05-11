@@ -229,3 +229,12 @@
 {"level":"info","message":"/api/users/signup - {\"name\":\"Jyoti Mehra\",\"email\":\"mj@gmail.com\",\"password\":\"Mehra_0628@#\",\"type\":\"Customer\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signup - {\"name\":\"Jyoti Mehra\",\"email\":\"mj@gmail.com\",\"password\":\"Mehra_0628@#\",\"type\":\"Customer\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signup - {\"name\":\"Jyoti Mehra\",\"email\":\"mj@gmail.com\",\"password\":\"Mehra_0628@#\",\"type\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetPassword - {\"password\":\"jyoti@#\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetPassword - {\"newPassword\":\"jyoti@#\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetPassword - {\"newPassword\":\"jyoti@#\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetPassword - {\"password\":\"jyoti123@#\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetPassword - {\"password\":\"jyoti123@#\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetPassword - {\"password\":\"jyoti123@#\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetPassword%20 - {\"newPassword\":\"jyoti123@#\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetPasswor - {\"newPassword\":\"jyoti123@#\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetPassword - {\"newPassword\":\"jyoti123@#\"}","service":"request-logging"}

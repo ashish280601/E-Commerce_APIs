@@ -65,4 +65,19 @@ export default class UserController {
       return res.status(500).send("Something went wrongs");
     }
   }
+
+  // function for reset password.
+  async resetPassword(req, res, next){
+    try {
+      const { newPassword } = req.body;
+      const hashedPassword = await bcrypt.hash(newPassword,12);
+      const userID = req.userID;
+
+      await this.userRepository.resetPassword(userID, hashedPassword);
+      return res.status(200).send('Password reset successful');
+    } catch (error) {
+      console.log(error); 
+      throw new Error("Something went wrong");
+    }
+  }
 }
