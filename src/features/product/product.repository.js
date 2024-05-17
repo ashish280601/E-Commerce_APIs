@@ -2,11 +2,16 @@ import { ObjectId } from "mongodb";
 import { getDB } from "../../config/mongodb.js";
 import { ApplicationErrors } from "../../error-handler/applicationError.js";
 import loggerMiddleware from "../../middlewares/logger.middleware.js";
+import { model } from "mongoose";
+import { productSchema } from "./product.schema.js";
+import { reviewSchema } from "./review.schema.js";
+
+// creating a model for a schema
+const ProductModel = model("Products", productSchema);
+const ReviewModel = model("Reviews", reviewSchema);
 
 class ProductRepository {
-  constructor() {
-    this.collection = "products";
-  }
+
   async add(newProduct) {
     try {
       // 1. Get a database
@@ -125,27 +130,25 @@ class ProductRepository {
 
   async rateProduct(userID, productID, rating) {
     try {
-      const db = getDB();
-
-      const productCollection = db.collection(this.collection);
-      // 1. Remove existing extry
-      await productCollection.updateOne(
-        {
-          _id: new ObjectId(productID),
-        },
-        {
-          $pull: { ratings: { userID: new ObjectId(userID) } },
-        }
-      );
-      // 2. Add new entry
-      await productCollection.updateOne(
-        {
-          _id: new ObjectId(productID),
-        },
-        {
-          $push: { ratings: { userID: new ObjectId(userID), rating } },
-        }
-      );
+      // step 1 check the product exist or not.
+      const productExist = await ProductModel.findById(productID);
+      if(!productExist){
+        throw new Error('Product not found');
+      }
+      // Find the user review exist or not 
+      const userReview = await ReviewModel.findOne({ product: new ObjectId(productID), user: new ObjectId(userID)});
+      if(userReview){
+        // update the review
+        userReview.rating = rating;
+        await userReview.save(); 
+      }else{
+        const newReview = new ReviewModel({
+          product: new ObjectId(productID),
+          user: new ObjectId(userID),
+          rating: rating
+        });
+        newReview.save();
+      }
     } catch (error) {
       console.log(error);
       throw new ApplicationErrors("Something went wrongs with database", 500);

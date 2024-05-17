@@ -1,6 +1,6 @@
 import mongoose, { model } from "mongoose";
 import { userSchema } from "./user.schema.js";
-
+  
 // Creating an model from schema.
 const UserModel = model("Users", userSchema);
 
