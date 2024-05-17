@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+import mongoose from "mongoose";
 
 import UserModel from "./user.model.js";
 import UserRepository from "./user.repository.js";
@@ -23,7 +24,12 @@ export default class UserController {
       return res.status(201).send(newUser);
     } catch (error) {
       console.log(error);
-      throw new ApplicationErrors("Something went wrong", 500);
+      if (error instanceof mongoose.Error.ValidationError) {
+        throw error;
+      } else {
+        console.log(error);
+        throw new ApplicationErrors("Something went wrong", 500);
+      }
     }
   }
 
@@ -34,9 +40,7 @@ export default class UserController {
       // 1. Find user by email.
       const user = await this.userRepository.findByEmail(email);
       if (!user) {
-
         return res.status(400).send("Invalid user email credential");
-
       } else {
         // 2. Compare password with hashed Password
         const result = await bcrypt.compare(password, user.password);
@@ -67,16 +71,16 @@ export default class UserController {
   }
 
   // function for reset password.
-  async resetPassword(req, res, next){
+  async resetPassword(req, res, next) {
     try {
       const { newPassword } = req.body;
-      const hashedPassword = await bcrypt.hash(newPassword,12);
+      const hashedPassword = await bcrypt.hash(newPassword, 12);
       const userID = req.userID;
 
       await this.userRepository.resetPassword(userID, hashedPassword);
-      return res.status(200).send('Password reset successful');
+      return res.status(200).send("Password reset successful");
     } catch (error) {
-      console.log(error); 
+      console.log(error);
       throw new Error("Something went wrong");
     }
   }

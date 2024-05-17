@@ -1,4 +1,4 @@
-import { model } from "mongoose";
+import mongoose, { model } from "mongoose";
 import { userSchema } from "./user.schema.js";
 
 // Creating an model from schema.
@@ -12,7 +12,12 @@ export default class UserRepository {
       return newUser;
     } catch (err) {
       console.log(err);
-      throw new Error("Something went wrong with database");
+      if(err instanceof mongoose.Error.ValidationError){
+        throw err
+      }else{
+        console.log(err);
+      throw new Error("Something went wrong with database", 500); 
+      }
     }
   }
 

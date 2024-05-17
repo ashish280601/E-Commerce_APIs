@@ -56,8 +56,12 @@ server.get("/", (req, res) => {
   res.send("Welcome To E-Commerce Trendio APIs");
 });
 
+// Error Handling middleware
 server.use((err, req, res, next) => {
   console.log(err);
+  if(err instanceof mongoose.Error.ValidateError){
+    return res.status(400).send(err.message);
+  }
   if (err instanceof ApplicationErrors) {
     res.status(err.code).send(err.message);
   }
