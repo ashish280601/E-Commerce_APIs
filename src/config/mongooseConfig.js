@@ -9,13 +9,7 @@ const url = process.env.URL
 // Step 2. Create a function to connect with mongoose.
 export const connectUsingMongoose = async() => {
     try {
-
-        await mongoose.connect(url
-        //     {
-        //     useNewUrlParser: true,
-        //     useUnifiedTopology: true
-        // }
-    )
+        await mongoose.connect(url)
         console.log("MongoDB connected with mongoose");
     } catch (error) {
         console.log("Error While Connecting With Mongoose Database", error);
